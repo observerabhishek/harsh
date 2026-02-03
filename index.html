@@ -23,35 +23,61 @@
 </label>
 
 <form name="registration" method="POST" data-netlify="true">
-    <input type="hidden" name="form-name" value="registration">
+  <input type="hidden" name="form-name" value="registration">
 
-    <div id="businessFields" class="hidden">
-        <input type="text" name="company_name" placeholder="Company Name" required>
-        <input type="text" name="company_contact" placeholder="Company Contact" required>
-        <input type="email" name="company_email" placeholder="Company Email" required>
-        <input type="text" name="company_address" placeholder="Company Address" required>
-    </div>
+  <label>
+    <input type="radio" name="user_type" value="business" onclick="showBusiness()" required>
+    Business
+  </label>
 
-    <div id="individualFields" class="hidden">
-        <input type="text" name="first_name" placeholder="First Name" required>
-        <input type="text" name="last_name" placeholder="Last Name" required>
-    </div>
+  <label>
+    <input type="radio" name="user_type" value="individual" onclick="showIndividual()">
+    Individual
+  </label>
 
-    <button type="submit">Submit</button>
+  <!-- Business Fields -->
+  <div id="businessFields" style="display:none;">
+    <input type="text" name="company_name" placeholder="Company Name">
+    <input type="text" name="company_contact" placeholder="Company Contact">
+    <input type="email" name="company_email" placeholder="Company Email">
+    <input type="text" name="company_address" placeholder="Company Address">
+  </div>
+
+  <!-- Individual Fields -->
+  <div id="individualFields" style="display:none;">
+    <input type="text" name="first_name" placeholder="First Name">
+    <input type="text" name="last_name" placeholder="Last Name">
+  </div>
+
+  <button type="submit">Submit</button>
 </form>
+
 
 
 <script>
 function showBusiness() {
-    document.getElementById("businessFields").style.display = "block";
-    document.getElementById("individualFields").style.display = "none";
+  document.getElementById("businessFields").style.display = "block";
+  document.getElementById("individualFields").style.display = "none";
+
+  setRequired("businessFields", true);
+  setRequired("individualFields", false);
 }
 
 function showIndividual() {
-    document.getElementById("individualFields").style.display = "block";
-    document.getElementById("businessFields").style.display = "none";
+  document.getElementById("individualFields").style.display = "block";
+  document.getElementById("businessFields").style.display = "none";
+
+  setRequired("individualFields", true);
+  setRequired("businessFields", false);
+}
+
+function setRequired(sectionId, isRequired) {
+  const inputs = document.getElementById(sectionId).querySelectorAll("input");
+  inputs.forEach(input => input.required = isRequired);
 }
 </script>
 
+
 </body>
 </html>
+
