@@ -22,21 +22,24 @@
     <input type="radio" name="type" value="individual" onclick="showIndividual()"> Individual
 </label>
 
-<form id="form">
+<form name="registration" method="POST" data-netlify="true">
+    <input type="hidden" name="form-name" value="registration">
+
     <div id="businessFields" class="hidden">
-        <input type="text" placeholder="Company Name" required>
-        <input type="text" placeholder="Company Contact Number" required>
-        <input type="email" placeholder="Company Email (Gmail)" required>
-        <input type="text" placeholder="Company Address" required>
+        <input type="text" name="company_name" placeholder="Company Name" required>
+        <input type="text" name="company_contact" placeholder="Company Contact" required>
+        <input type="email" name="company_email" placeholder="Company Email" required>
+        <input type="text" name="company_address" placeholder="Company Address" required>
     </div>
 
     <div id="individualFields" class="hidden">
-        <input type="text" placeholder="First Name" required>
-        <input type="text" placeholder="Last Name" required>
+        <input type="text" name="first_name" placeholder="First Name" required>
+        <input type="text" name="last_name" placeholder="Last Name" required>
     </div>
 
     <button type="submit">Submit</button>
 </form>
+
 
 <script>
 function showBusiness() {
