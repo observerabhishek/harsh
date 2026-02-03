@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact Us</a>
+</nav>
+
+<h1>Registration Form</h1>
+
+<label>
+    <input type="radio" name="type" value="business" onclick="showBusiness()"> Business
+</label>
+<label>
+    <input type="radio" name="type" value="individual" onclick="showIndividual()"> Individual
+</label>
+
+<form id="form">
+    <div id="businessFields" class="hidden">
+        <input type="text" placeholder="Company Name" required>
+        <input type="text" placeholder="Company Contact Number" required>
+        <input type="email" placeholder="Company Email (Gmail)" required>
+        <input type="text" placeholder="Company Address" required>
+    </div>
+
+    <div id="individualFields" class="hidden">
+        <input type="text" placeholder="First Name" required>
+        <input type="text" placeholder="Last Name" required>
+    </div>
+
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+function showBusiness() {
+    document.getElementById("businessFields").style.display = "block";
+    document.getElementById("individualFields").style.display = "none";
+}
+
+function showIndividual() {
+    document.getElementById("individualFields").style.display = "block";
+    document.getElementById("businessFields").style.display = "none";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+nav a {
+    margin-right: 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+form {
+    margin-top: 20px;
+    max-width: 400px;
+}
+
+input, button {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
